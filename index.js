@@ -29,8 +29,8 @@ router.route('/baca').get((req, res) => {
 });
 
 router.route('/bacasatu/:id').get((req, res) => {
-  dbopr.bacasatu(req.params?.id).then(result => {
-    console.log('get data id: ' + req.params?.id + '.');
+  dbopr.bacasatu(req.params.id).then(result => {
+    console.log('get data id: ' + req.params.id + '.');
     res.json(result[0][0]);
   });
 });
@@ -38,7 +38,7 @@ router.route('/bacasatu/:id').get((req, res) => {
 router.route('/tulis').post((req, res) => {
   let emp = { ...req.body }
   dbopr.tulis(emp).then(result => {
-    console.log('insert new id: ' + result[0][0]?.id + '.');
+    console.log('insert new id: ' + result[0][0].id + '.');
     res.status(201).json(result[0][0]);
   });
 });
